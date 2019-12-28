@@ -128,3 +128,14 @@ class RunCommand extends Command
 ```
 
 Note that you can use `yes()` as an alias of `usingInfiniteInput()`.
+
+### Use via `StreamableArtisan` Facade
+
+```php
+<?php
+
+use Mpyw\StreamableConsole\StreamableArtisan;
+
+StreamableArtisan::usingInputStream("no\n")->call('example:quiz');
+StreamableArtisan::usingInfiniteInput("no\n")->call('example:quiz');
+```
