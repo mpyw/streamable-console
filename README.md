@@ -139,3 +139,35 @@ use Mpyw\StreamableConsole\StreamableArtisan;
 StreamableArtisan::usingInputStream("no\n")->call('example:quiz');
 StreamableArtisan::usingInfiniteInput("no\n")->call('example:quiz');
 ```
+
+## Real World Examples
+
+### [barryvdh/laravel-ide-helper](https://github.com/barryvdh/laravel-ide-helper)
+
+```php
+<?php
+
+namespace App\Console\Commands;
+
+use Illuminate\Console\Command;
+use Mpyw\StreamableConsole\Streamable;
+
+class AllCommand extends Command
+{
+    use Streamable;
+
+    protected $signature = 'ide-helper:all';
+
+    /**
+     * @return int
+     */
+    public function handle(): int
+    {
+        $this->call('ide-helper:generate');
+        $this->call('ide-helper:meta');
+        $this->usingInputStream("no\n")->call('ide-helper:models');
+
+        return 0;
+    }
+}
+```
