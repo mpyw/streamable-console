@@ -25,6 +25,6 @@ class ArtisanTest extends TestCase
         $kernel = $this->app->make(Kernel::class);
         $kernel->registerCommand(new RepeatQuizCommand());
 
-        $this->assertSame(0, StreamableArtisan::usingInfiniteInput("2\n")->call('example:repeat-quiz'));
+        $this->assertSame(0, StreamableArtisan::yes("2\n")->call('example:repeat-quiz'));
     }
 }
