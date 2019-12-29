@@ -1,12 +1,7 @@
 language: php
 
-matrix:
-  exclude:
-    - env: LARAVEL_VERSION=^6.0 TESTBENCH_VERSION=^4.0
-      php: 7.1
-
+# PHP 7.1 crashes when collecting coverage
 php:
-  - 7.1
   - 7.2
   - 7.3
   - 7.4

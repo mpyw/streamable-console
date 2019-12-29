@@ -28,7 +28,7 @@ trait Streamable
      */
     public function usingInfiniteInput(string $input): PendingStreamableCall
     {
-        return (new InfiniteStreamRegistrar())->usingInfiniteInput($input, [$this, 'usingInputStream']);
+        return $this->usingInputStream(InfiniteStream::open($input));
     }
 
     /**
