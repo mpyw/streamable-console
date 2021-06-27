@@ -2,7 +2,7 @@
 
 namespace Mpyw\StreamableConsole;
 
-use function GuzzleHttp\Psr7\stream_for;
+use GuzzleHttp\Psr7\Utils;
 use Iterator;
 use Psr\Http\Message\StreamInterface;
 
@@ -19,7 +19,8 @@ trait Streamable
      */
     public function usingInputStream($resource): PendingStreamableCall
     {
-        return new PendingStreamableCall($this, stream_for($resource));
+        /** @noinspection PhpParamsInspection */
+        return new PendingStreamableCall($this, Utils::streamFor($resource));
     }
 
     /**

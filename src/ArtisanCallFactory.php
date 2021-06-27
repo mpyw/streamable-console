@@ -2,7 +2,7 @@
 
 namespace Mpyw\StreamableConsole;
 
-use function GuzzleHttp\Psr7\stream_for;
+use GuzzleHttp\Psr7\Utils;
 use Illuminate\Contracts\Console\Kernel;
 use Illuminate\Contracts\Container\Container;
 
@@ -39,7 +39,7 @@ class ArtisanCallFactory
      */
     public function usingInputStream($resource): PendingArtisanCall
     {
-        return new PendingArtisanCall($this->container, $this->kernel, stream_for($resource));
+        return new PendingArtisanCall($this->container, $this->kernel, Utils::streamFor($resource));
     }
 
     /**
