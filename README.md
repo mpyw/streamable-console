@@ -1,11 +1,12 @@
-# Streamable Console [![Build Status](https://travis-ci.com/mpyw/streamable-console.svg?branch=master)](https://travis-ci.com/mpyw/streamable-console) [![Code Coverage](https://scrutinizer-ci.com/g/mpyw/streamable-console/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/mpyw/streamable-console/?branch=master) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mpyw/streamable-console/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mpyw/streamable-console/?branch=master)
+# Streamable Console [![Build Status](https://github.com/mpyw/streamable-console/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/mpyw/streamable-console/actions) [![Coverage Status](https://coveralls.io/repos/github/mpyw/streamable-console/badge.svg?branch=master)](https://coveralls.io/github/mpyw/streamable-console?branch=master) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mpyw/streamable-console/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mpyw/streamable-console/?branch=master)
 
 Call interactive artisan command using arbitrary stream.
 
 ## Requirements
 
-- PHP: ^7.1
-- Laravel: ^5.6 || ^6.0
+- PHP: `^7.1 || ^8.0`
+- Laravel: `^5.6 || ^6.0 || ^7.0 || ^8.0`
+- [mpyw/stream-interface-resource](https://github.com/mpyw/stream-interface-resource): `^1.0`
 
 ## Installing
 
