@@ -70,7 +70,7 @@ class PendingArtisanCall
 
         $artisan = $this->getArtisan();
 
-        /* @var Command $command */
+        /* @var string $command */
         /* @var StreamableInputInterface $input */
         [$command, $input] = $this->parseCommand($artisan, $command, $parameters);
         $input->setStream($this->stream->detach());

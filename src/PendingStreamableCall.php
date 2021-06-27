@@ -77,7 +77,7 @@ class PendingStreamableCall
         $input = $this->createInputFromArguments($arguments);
         $input->setStream($this->stream->detach());
 
-        $target = version_compare($this->command->getApplication()->getVersion(), '6.0.0', '>=')
+        $target = \version_compare($this->command->getApplication()->getVersion(), '6.0.0', '>=')
             ? $this->resolveCommand($command)
             : $this->command->getApplication()->find($command);
 
@@ -119,6 +119,8 @@ class PendingStreamableCall
         /* @noinspection PhpUnhandledExceptionInspection */
         $method = new ReflectionMethod($this->command, $method);
         $method->setAccessible(true);
+
+        /** @noinspection PhpUnhandledExceptionInspection */
         return $method->invokeArgs($this->command, $arguments);
     }
 }
