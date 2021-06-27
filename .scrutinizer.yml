@@ -8,15 +8,19 @@ filter:
     - vendor/*
 
 build:
-  nodes:
-    analysis:
-      project_setup:
-        override:
-          - 'true'
-      tests:
-        override:
-          - php-scrutinizer-run
 
-tools:
-  external_code_coverage:
-    runs: 12
+  environment:
+    php: '7.4'
+
+  dependencies:
+    before:
+      - composer install
+      - mkdir -p build/logs
+
+  tests:
+    override:
+      -
+        command: 'phpdbg -qrr vendor/bin/phpunit --coverage-clover build/logs/clover.xml'
+        coverage:
+          file: 'build/logs/clover.xml'
+          format: 'clover'
