@@ -9,6 +9,7 @@ use Mockery;
 use Mpyw\StreamableConsole\PendingStreamableCall;
 use Orchestra\Testbench\TestCase;
 use Psr\Http\Message\StreamInterface;
+use Symfony\Component\Console\Application as SymfonyApplication;
 use Symfony\Component\Console\Input\StreamableInputInterface;
 use Symfony\Component\Console\Output\NullOutput;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -17,7 +18,7 @@ class PendingStreamableCallTest extends TestCase
 {
     public function testCallCommand(): void
     {
-        $application = Mockery::mock(Application::class);
+        $application = Mockery::mock(SymfonyApplication::class);
         $caller = Mockery::mock(Command::class);
         $callee = Mockery::mock(Command::class);
         $input = Mockery::mock(StreamableInputInterface::class);
@@ -81,7 +82,7 @@ class PendingStreamableCallTest extends TestCase
 
     public function testCallSilentCommand(): void
     {
-        $application = Mockery::mock(Application::class);
+        $application = Mockery::mock(SymfonyApplication::class);
         $caller = Mockery::mock(Command::class);
         $callee = Mockery::mock(Command::class);
         $input = Mockery::mock(StreamableInputInterface::class);
