@@ -28,8 +28,11 @@
         "mpyw/stream-interface-resource": "^1.0.3"
     },
     "require-dev": {
-        "orchestra/testbench": "^4.0",
-        "friendsofphp/php-cs-fixer": "^2.14",
-        "mockery/mockery": "^1.3"
-    }
+        "mockery/mockery": "^1.3",
+        "laravel/framework": "^9.0",
+        "orchestra/testbench-core": "^6.25",
+        "phpunit/phpunit": "^9.5"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
