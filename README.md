@@ -7,7 +7,6 @@ Call interactive artisan command using arbitrary stream.
 - PHP: `^7.3 || ^8.0`
 - Laravel: `^6.0 || ^7.0 || ^8.0 || ^9.0`
 - [guzzlehttp/psr7](https://github.com/guzzle/psr7): `^1.7`
-- [mpyw/stream-interface-resource](https://github.com/mpyw/stream-interface-resource): `^1.0.3`
 
 ## Installing
 

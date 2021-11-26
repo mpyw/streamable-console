@@ -24,8 +24,7 @@
         "php": "^7.3 || ^8.0",
         "illuminate/console": "^6.0 || ^7.0 || ^8.0 || ^9.0",
         "illuminate/contracts": "^6.0 || ^7.0 || ^8.0 || ^9.0",
-        "guzzlehttp/psr7": "^1.7",
-        "mpyw/stream-interface-resource": "^1.0.3"
+        "guzzlehttp/psr7": "^1.7"
     },
     "require-dev": {
         "orchestra/testbench": "*",
