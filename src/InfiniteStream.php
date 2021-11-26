@@ -2,7 +2,8 @@
 
 namespace Mpyw\StreamableConsole;
 
-use Mpyw\StreamInterfaceResource\StreamInterfaceResource;
+use GuzzleHttp\Psr7\StreamWrapper;
+use GuzzleHttp\Psr7\Utils;
 
 class InfiniteStream
 {
@@ -12,10 +13,10 @@ class InfiniteStream
      */
     public static function open(string $input)
     {
-        return StreamInterfaceResource::open((function () use ($input) {
+        return StreamWrapper::getResource(Utils::streamFor((function () use ($input) {
             while (true) {
                 yield $input;
             }
-        })());
+        })()));
     }
 }
