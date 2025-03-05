@@ -46,30 +46,10 @@ class PendingStreamableCallTest extends TestCase
             ->once()
             ->with($fp);
 
-        $caller->shouldReceive('getApplication')
+        $caller->shouldReceive('resolveCommand')
             ->once()
-            ->withNoArgs()
-            ->andReturn($application);
-        $application->shouldReceive('getVersion')
-            ->once()
-            ->withNoArgs()
-            ->andReturn(Application::VERSION);
-
-        if (version_compare(Application::VERSION, '6.0.0', '>=')) {
-            $caller->shouldReceive('resolveCommand')
-                ->once()
-                ->with('example:run')
-                ->andReturn($callee);
-        } else {
-            $caller->shouldReceive('getApplication')
-                ->once()
-                ->withNoArgs()
-                ->andReturn($application);
-            $application->shouldReceive('find')
-                ->once()
-                ->with('example:run')
-                ->andReturn($callee);
-        }
+            ->with('example:run')
+            ->andReturn($callee);
 
         $callee->shouldReceive('run')
             ->once()
@@ -107,30 +87,10 @@ class PendingStreamableCallTest extends TestCase
             ->once()
             ->with($fp);
 
-        $caller->shouldReceive('getApplication')
+        $caller->shouldReceive('resolveCommand')
             ->once()
-            ->withNoArgs()
-            ->andReturn($application);
-        $application->shouldReceive('getVersion')
-            ->once()
-            ->withNoArgs()
-            ->andReturn(Application::VERSION);
-
-        if (version_compare(Application::VERSION, '6.0.0', '>=')) {
-            $caller->shouldReceive('resolveCommand')
-                ->once()
-                ->with('example:run')
-                ->andReturn($callee);
-        } else {
-            $caller->shouldReceive('getApplication')
-                ->once()
-                ->withNoArgs()
-                ->andReturn($application);
-            $application->shouldReceive('find')
-                ->once()
-                ->with('example:run')
-                ->andReturn($callee);
-        }
+            ->with('example:run')
+            ->andReturn($callee);
 
         $callee->shouldReceive('run')
             ->once()

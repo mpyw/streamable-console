@@ -5,9 +5,12 @@ namespace Mpyw\StreamableConsole;
 use Illuminate\Console\Command;
 use Psr\Http\Message\StreamInterface;
 use ReflectionMethod;
+use ReflectionProperty;
+use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\StreamableInputInterface;
 use Symfony\Component\Console\Output\NullOutput;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
 
 /**
  * Class PendingStreamableCall
@@ -77,9 +80,11 @@ class PendingStreamableCall
         $input = $this->createInputFromArguments($arguments);
         $input->setStream($this->stream->detach());
 
-        $target = \version_compare($this->command->getApplication()->getVersion(), '6.0.0', '>=')
-            ? $this->resolveCommand($command)
-            : $this->command->getApplication()->find($command);
+        if ($output instanceof SymfonyStyle) {
+            $this->setInputInOutputStyle($output, 'input', $input);
+        }
+
+        $target = $this->resolveCommand($command);
 
         /* @noinspection PhpUnhandledExceptionInspection */
         return $target->run($input, $output);
@@ -107,20 +112,19 @@ class PendingStreamableCall
         return $this->callCommandMethod(__FUNCTION__, $arguments);
     }
 
-    /** @noinspection PhpDocMissingThrowsInspection */
-
-    /**
-     * @param  string $method
-     * @param  array  $arguments
-     * @return mixed
-     */
     protected function callCommandMethod(string $method, ...$arguments)
     {
         /* @noinspection PhpUnhandledExceptionInspection */
         $method = new ReflectionMethod($this->command, $method);
-        $method->setAccessible(true);
 
         /** @noinspection PhpUnhandledExceptionInspection */
         return $method->invokeArgs($this->command, $arguments);
+    }
+
+    protected function setInputInOutputStyle(SymfonyStyle $object, string $property, InputInterface $value): void
+    {
+        /* @noinspection PhpUnhandledExceptionInspection */
+        $property = new ReflectionProperty(SymfonyStyle::class, $property);
+        $property->setValue($object, $value);
     }
 }
