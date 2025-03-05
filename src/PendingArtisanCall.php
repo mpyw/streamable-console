@@ -158,7 +158,6 @@ class PendingArtisanCall
     {
         /* @noinspection PhpUnhandledExceptionInspection */
         $method = new ReflectionMethod($object, $method);
-        $method->setAccessible(true);
         return $method->invokeArgs($object, $arguments);
     }
 
@@ -174,7 +173,6 @@ class PendingArtisanCall
     {
         /* @noinspection PhpUnhandledExceptionInspection */
         $property = new ReflectionProperty($object, $property);
-        $property->setAccessible(true);
         $property->setValue($object, $value);
         return $value;
     }

@@ -14,6 +14,8 @@ use Mpyw\StreamableConsole\InteractiveInputs\ArrayInput;
 use Mpyw\StreamableConsole\InteractiveInputs\StringInput;
 use Mpyw\StreamableConsole\PendingArtisanCall;
 use Orchestra\Testbench\TestCase;
+use PHPUnit\Framework\Attributes\PreserveGlobalState;
+use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use Psr\Http\Message\StreamInterface;
 use Symfony\Component\Console\Exception\CommandNotFoundException;
 use Symfony\Component\Console\Input\StreamableInputInterface;
@@ -21,10 +23,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class PendingArtisanCallTest extends TestCase
 {
-    /**
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
+    #[RunInSeparateProcess]
+    #[PreserveGlobalState(enabled: false)]
     public function testCallStringInput(): void
     {
         $container = Mockery::mock(Container::class);
@@ -71,10 +71,8 @@ class PendingArtisanCallTest extends TestCase
         );
     }
 
-    /**
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
+    #[RunInSeparateProcess]
+    #[PreserveGlobalState(enabled: false)]
     public function testCallArrayInput(): void
     {
         $container = Mockery::mock(Container::class);
@@ -119,10 +117,8 @@ class PendingArtisanCallTest extends TestCase
         );
     }
 
-    /**
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
+    #[RunInSeparateProcess]
+    #[PreserveGlobalState(enabled: false)]
     public function testCallClass(): void
     {
         $container = Mockery::mock(Container::class);
@@ -173,10 +169,8 @@ class PendingArtisanCallTest extends TestCase
         );
     }
 
-    /**
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
+    #[RunInSeparateProcess]
+    #[PreserveGlobalState(enabled: false)]
     public function testMissingCommand(): void
     {
         $this->expectException(CommandNotFoundException::class);

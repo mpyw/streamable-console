@@ -1,12 +1,15 @@
-# Streamable Console [![Build Status](https://github.com/mpyw/streamable-console/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/mpyw/streamable-console/actions) [![Coverage Status](https://coveralls.io/repos/github/mpyw/streamable-console/badge.svg?branch=master)](https://coveralls.io/github/mpyw/streamable-console?branch=master) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mpyw/streamable-console/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mpyw/streamable-console/?branch=master)
+# Streamable Console [![Build Status](https://github.com/mpyw/streamable-console/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/mpyw/streamable-console/actions) [![Coverage Status](https://coveralls.io/repos/github/mpyw/streamable-console/badge.svg?branch=master)](https://coveralls.io/github/mpyw/streamable-console?branch=master)
 
 Call interactive artisan command using arbitrary stream.
 
 ## Requirements
 
-- PHP: `^8.0`
-- Laravel: `^9.0 || ^10.0`
-- [guzzlehttp/psr7](https://github.com/guzzle/psr7): `^1.7`
+- PHP: `^8.2`
+- Laravel: `^11.0 || ^12.0`
+- [guzzlehttp/psr7](https://github.com/guzzle/psr7): `^2.7`
+
+> [!NOTE]
+> Older versions have outdated dependency requirements. If you cannot prepare the latest environment, please refer to past releases.
 
 ## Installing
 
