@@ -5,7 +5,7 @@ Call interactive artisan command using arbitrary stream.
 ## Requirements
 
 - PHP: `^8.2`
-- Laravel: `^11.0 || ^12.0`
+- Laravel: `^11.0 || ^12.0 || ^13.0`
 - [guzzlehttp/psr7](https://github.com/guzzle/psr7): `^2.7`
 
 > [!NOTE]

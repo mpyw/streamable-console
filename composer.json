@@ -22,8 +22,8 @@
     },
     "require": {
         "php": "^8.2",
-        "illuminate/console": "^11.0 || ^12.0 || ^13.0",
-        "illuminate/contracts": "^11.0 || ^12.0 || ^13.0",
+        "illuminate/console": "^11.0 || ^12.0 || ^13.0 || ^14.0",
+        "illuminate/contracts": "^11.0 || ^12.0 || ^13.0 || ^14.0",
         "guzzlehttp/psr7": "^2.7"
     },
     "require-dev": {
